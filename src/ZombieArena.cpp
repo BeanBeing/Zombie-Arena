@@ -1,13 +1,17 @@
-#include <SFML/Graphics.hpp>
-#include <SFML/Graphics/VertexArray.hpp>
-#include <SFML/Window/WindowStyle.hpp>
 #include "../headers/Player.hpp"
 #include "../headers/ZombieArena.hpp"
+#include <SFML/Graphics/CircleShape.hpp>
+#include <SFML/System/Vector2.hpp>
 
 
 int main()
 {
 
+   
+
+   sf::Font normalFont;
+   normalFont.loadFromFile("graphics/04B_19.TTF");
+   
    // Game will always be in one of four states
    enum class State{ PAUSED, LEVELING_UP, GAME_OVER, PLAYING };
 
@@ -18,7 +22,7 @@ int main()
    sf::Vector2f resolution;
    resolution.x = sf::VideoMode::getDesktopMode().width;
    resolution.y = sf::VideoMode::getDesktopMode().height;
-
+   
    sf::RenderWindow window(sf::VideoMode(resolution.x, resolution.y), "Zombie Arena", sf::Style::Default);
 
    // Create an SFML View for the main action
@@ -48,6 +52,14 @@ int main()
    sf::Texture textureBackGround;
    textureBackGround.loadFromFile("graphics/background_sheet.png");
 
+   // Text to tell how to start game
+   sf::Text ToStartGame;
+   ToStartGame.setFont(normalFont);
+   ToStartGame.setFillColor(sf::Color::White);
+   ToStartGame.setCharacterSize(30);
+   ToStartGame.setPosition(sf::Vector2f(640, 480));
+   ToStartGame.setString("PRESS RETURN THEN A NUMBER KEY TO START!");
+   
    // Limit the framerate
    window.setFramerateLimit(60);
    
@@ -221,7 +233,7 @@ int main()
          
          // Set mainView to be displayed in window and draw everything to that view
          window.setView(mainView);
-
+         
          // Draw background
          window.draw(background, &textureBackGround);
          // Draw player
@@ -237,6 +249,8 @@ int main()
 
       if(state == State::GAME_OVER)
       {
+         window.clear();
+         window.draw(ToStartGame);
       }
       
       window.display();
