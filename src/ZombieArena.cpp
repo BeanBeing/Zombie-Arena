@@ -1,8 +1,5 @@
 #include "../headers/Player.hpp"
 #include "../headers/ZombieArena.hpp"
-#include <SFML/Graphics/CircleShape.hpp>
-#include <SFML/System/Vector2.hpp>
-
 
 int main()
 {
@@ -10,7 +7,7 @@ int main()
    
 
    sf::Font normalFont;
-   normalFont.loadFromFile("graphics/04B_19.TTF");
+   normalFont.loadFromFile("../graphics/04B_19.TTF");
    
    // Game will always be in one of four states
    enum class State{ PAUSED, LEVELING_UP, GAME_OVER, PLAYING };
@@ -19,7 +16,7 @@ int main()
    State state = State::GAME_OVER;
 
    // Get screen resolution and create SFML Window
-   sf::Vector2f resolution;
+   sf::Vector2f resolution{};
    resolution.x = sf::VideoMode::getDesktopMode().width;
    resolution.y = sf::VideoMode::getDesktopMode().height;
    
@@ -29,28 +26,28 @@ int main()
    sf::View mainView(sf::FloatRect(0, 0, resolution.x, resolution.y));
 
    // Clock for timing everything
-   sf::Clock clock;
+   sf::Clock clock{};
 
    // How long has PLAYING state been active
-   sf::Time gameTimeTotal;
+   sf::Time gameTimeTotal{};
 
    // Locate mouse in relation to world coordinates
-   sf::Vector2f mouseWorldPosition;
+   sf::Vector2f mouseWorldPosition{};
 
    // Locate mouse in relation to screen coordinates
-   sf::Vector2i mouseScreenPosition;
+   sf::Vector2i mouseScreenPosition{};
 
    // Create instance of Player class
-   Player player;
+   Player player{};
 
    // Boundary of the arena
-   sf::IntRect arena;
+   sf::IntRect arena{};
 
    // Create the background
-   sf::VertexArray background;
+   sf::VertexArray background{};
    // Load texture for background vertex array
-   sf::Texture textureBackGround;
-   textureBackGround.loadFromFile("graphics/background_sheet.png");
+   sf::Texture textureBackGround{};
+   textureBackGround.loadFromFile("../graphics/background_sheet.png");
 
    // Text to tell how to start game
    sf::Text ToStartGame;

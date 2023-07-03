@@ -1,6 +1,4 @@
 #include "../headers/ZombieArena.hpp"
-#include <SFML/Graphics/PrimitiveType.hpp>
-#include <SFML/System/Vector2.hpp>
 #include <cstdlib>
 
 int createBackGround(sf::VertexArray &vertexArray, sf::IntRect arena)
@@ -27,9 +25,9 @@ int createBackGround(sf::VertexArray &vertexArray, sf::IntRect arena)
    // Start at the beginning of the vertexArray
    int currentVertex { 0 };
 
-   for(std::size_t w{ 0 }; w < worldWidth; w++)
+   for(int w{ 0 }; w < worldWidth; w++)
    {
-      for(std::size_t h{ 0 }; h < worldHeight; h++)
+      for(int h{ 0 }; h < worldHeight; h++)
       {
          // Position each vertex in the curent quad
          // (0 * TILE_SIZE, 0 * TILE_SIZE)
