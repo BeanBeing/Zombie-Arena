@@ -8,7 +8,7 @@ BUILD_DIR=build
 
 OBJECTS := ZombieArena.o CreateBackground.o Player.o
 
-.PHONY: test clean
+.PHONY: clean
 
 # Compiler Flags
 CFLAGS = -Wall -pedantic
