@@ -3,7 +3,7 @@ A zombie game to help me know SFML
 
 # Dependencies
 -makefile<br>
--SFML(Simple and Fast Multimedia Library)
+-SFML(Simple and Fast Multimedia Library)<br>
 On Arch-Linux or Arch-based distros you can use the following command in-order to install SFML
 ```
 sudo pacman -S sfml
