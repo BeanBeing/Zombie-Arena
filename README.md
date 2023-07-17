@@ -9,6 +9,7 @@ sudo pacman -S sfml
 ```
 
 # Instructions
+inside the Zombie-Arena directory, run the following command:
 ```
 make app; cd build; ./ZombieArena
 ```
