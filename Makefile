@@ -19,9 +19,6 @@ LFLAGS = -lsfml-graphics -lsfml-window -lsfml-system
 # Output name
 CCOUT= ZombieArena
 
-# Compiled Object Files
-COBJ = *.o
-
 app: $(OBJECTS)
 	$(CC) $(CFLAGS) $(OBJ_DIR)/*.o -o $(BUILD_DIR)/$(CCOUT) $(LFLAGS)
 
