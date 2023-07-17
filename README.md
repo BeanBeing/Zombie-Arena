@@ -13,3 +13,7 @@ inside the Zombie-Arena directory, run the following command:
 ```
 make app; cd build; ./ZombieArena
 ```
+You can also just do
+```
+make app; make test
+```
