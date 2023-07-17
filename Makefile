@@ -6,7 +6,7 @@ HDR_DIR=headers
 OBJ_DIR=objects
 BUILD_DIR=build
 
-OBJECTS := ZombieArena.o CreateBackground.o Player.o
+OBJECTS= ZombieArena.o CreateBackground.o Player.o
 
 .PHONY: test clean
 
@@ -17,13 +17,12 @@ CFLAGS = -Wall -pedantic
 LFLAGS = -lsfml-graphics -lsfml-window -lsfml-system
 
 # Output name
-CCOUT=ZombieArena
+CCOUT= ZombieArena
 
 # Compiled Object Files
 COBJ = *.o
 
-#$(OBJ_DIR)/*.o
-$(CCOUT): $(OBJECTS)
+app: $(OBJECTS)
 	$(CC) $(CFLAGS) $(OBJ_DIR)/*.o -o $(BUILD_DIR)/$(CCOUT) $(LFLAGS)
 
 ZombieArena.o: $(SRC_DIR)/ZombieArena.cpp
