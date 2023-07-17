@@ -8,7 +8,7 @@ BUILD_DIR=build
 
 OBJECTS= ZombieArena.o CreateBackground.o Player.o
 
-.PHONY: test clean make_object_dir
+.PHONY: test clean make_object_dir make_build_dir
 
 # Compiler Flags
 CFLAGS = -Wall -pedantic
@@ -19,8 +19,11 @@ LFLAGS = -lsfml-graphics -lsfml-window -lsfml-system -lsfml-audio
 # Output name
 CCOUT= ZombieArena
 
-app: make_object_dir $(OBJECTS)
+app: make_build_dir make_object_dir $(OBJECTS)
 	$(CC) $(CFLAGS) $(OBJ_DIR)/*.o -o $(BUILD_DIR)/$(CCOUT) $(LFLAGS)
+
+make_build_dir:
+	mkdir -p $(BUILD_DIR)
 
 make_object_dir:
 	mkdir -p $(OBJ_DIR)/
